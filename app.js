@@ -15,8 +15,10 @@ let PassInp=document.getElementById('Pass-Inp').addEventListener('keyup',()=>{
     }
 
     let numberLength=document.getElementById('num-length')
-    if(inp.value>0){
-        // numberLength.innerHTML=`<i class="fa-solid fa-circle" style="background-color: lightgreen;"></i>`
+    if(/[0-9]/.test(inp.value)){
+  
+        numberLength.innerHTML=`<i class="fa-solid fa-circle" style="background-color: lightgreen; margin-right: 3rem;"></i>
+            <span>At least 1 number (0...9)</span>`
             numberLength.style.backgroundColor='lightgreen'
             numberLength.style.borderRadius='5px'
 
@@ -27,7 +29,7 @@ let PassInp=document.getElementById('Pass-Inp').addEventListener('keyup',()=>{
     }
 
     let lowerCaseLength=document.getElementById('lower-Length')
-    if(inp.value.toLowerCase().length>0){
+    if(/[a-z]/.test(inp.value)){
            lowerCaseLength.style.backgroundColor='lightgreen'
             lowerCaseLength.style.borderRadius='5px'
     }
@@ -35,15 +37,25 @@ let PassInp=document.getElementById('Pass-Inp').addEventListener('keyup',()=>{
         lowerCaseLength.style.backgroundColor='transparent'
 
     }
-    // let upperCaseLength=document.getElementById('upper-Length')
-    // if(inp.value.toUpperCase().length>0){
-    //     upperCaseLength.style.backgroundColor='lightgreen'
-    //     upperCaseLength.style.borderRadius='5px'
-    // }
-    // else{
-    //     upperCaseLength.style.backgroundColor='transparent'
+    let upperCaseLength=document.getElementById('upper-Length')
+    if(/[A-Z]/.test(inp.value)){
+        upperCaseLength.style.backgroundColor='lightgreen'
+        upperCaseLength.style.borderRadius='5px'
+    }
+    else{
+        upperCaseLength.style.backgroundColor='transparent'
 
-    // }
+    }
+    let specialCharacterLength=document.getElementById('special-Length')
+    if(/[!@#$%^&*(),.?"]/.test(inp.value)){
+        specialCharacterLength.style.backgroundColor='lightgreen'
+        specialCharacterLength.style.borderRadius='5px'
+    }
+    else{
+        specialCharacterLength.style.backgroundColor='transparent'
+
+    }
+ 
 
 
 
