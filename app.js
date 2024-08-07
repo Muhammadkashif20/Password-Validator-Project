@@ -64,17 +64,22 @@ upperCaseLength.innerHTML=`<i class="fa-solid fa-circle"></i>
         specialCharacterLength.style.backgroundColor='transparent'
         specialCharacterLength.innerHTML=`<i class="fa-solid fa-circle"></i>
             <span>At least 1 special symbol (!...$)</span>`
-    }  
-})
-let inp = document.getElementById('Pass-Inp');
-let hide = document.getElementById('fa-Eye');
+    }    
+    let hide = document.getElementById('fa-Eye');   
+    let show = document.getElementById('fa-Slash');   
+    hide.addEventListener('click', () => {
+        if (inp.type === 'password') {
+            inp.type = 'text';
+            hide.style.display='none'
+            show.style.display='block'
+        }
+    });
+    show.addEventListener('click', () => {
+        if (inp.type === 'text') {
+            inp.type = 'password';
+            hide.style.display='block'
+            show.style.display='none'
+        }
+    });
 
-hide.addEventListener('click', () => {
-    if (inp.type === 'password') {
-        inp.type = 'text';
-        hide.innerHTML = `<i class="fa-solid fa-eye" id="fa-Eye"></i>`;
-    } else {
-        inp.type = 'password';
-        hide.innerHTML = `<i class="fa-solid fa-eye-slash" id="fa-Eye"></i>`;
-    }
-});
+    })
